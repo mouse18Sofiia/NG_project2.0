@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ current_novel }}</title>
+</head>
+<body>
+    <h1>{{ step.text }}</h1>
+<!-- ... -->
+<ul>
+    {% for choice in step.choices %}
+        <li><button onclick="makeChoice('{{ choice.key }}'); return false;">{{ choice.text }}</button></li>
+    {% endfor %}
+</ul>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function makeChoice(choice) {
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({'choice': choice}),
+                url: '/make_choice',
+                success: function(response) {
+                    if (response.step) {
+                        $('h1').text(response.step.text);
+                        $('ul').empty();
+                        $.each(response.step.choices, function(index, choice) {
+                            $('ul').append('<li><button onclick="makeChoice(\'' + choice + '\')">' + choice + '</button></li>');
+                        });
+                    } else {
+                        alert('End of the story');
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>
