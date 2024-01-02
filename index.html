@@ -1,0 +1,17 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel Selection</title>
+</head>
+<body>
+    <h1>Choose a Novel</h1>
+    <ul>
+        {% for novel_name, novel_data in novels.items() %}
+            <li><a href="{{ url_for('choose_novel', novel_name=novel_name) }}">{{ novel_data['start']['text'] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
