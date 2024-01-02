@@ -1,0 +1,63 @@
+{
+  "start": {
+    "text": "Welcome to the novel! Choose your first option.",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Option A",
+        "next_step": "choice_A"
+      },
+      {
+        "key": "B",
+        "text": "Option B",
+        "next_step": "choice_B"
+      }
+    ]
+  },
+  "choice_A": {
+    "text": "You chose Option A. Continue your story.",
+    "choices": [
+      {
+        "key": "C",
+        "text": "Option C",
+        "next_step": "choice_C"
+      },
+      {
+        "key": "D",
+        "text": "Option D",
+        "next_step": "choice_D"
+      }
+    ]
+  },
+  "choice_B": {
+    "text": "You chose Option B. Continue your story.",
+    "choices": [
+      {
+        "key": "E",
+        "text": "Option E",
+        "next_step": "choice_E"
+      },
+      {
+        "key": "F",
+        "text": "Option F",
+        "next_step": "choice_F"
+      }
+    ]
+  },
+  "choice_C": {
+    "text": "You chose Option C. Continue your story.",
+    "choices": [
+      {
+        "key": "G",
+        "text": "Option G",
+        "next_step": "choice_G"
+      },
+      {
+        "key": "H",
+        "text": "Option H",
+        "next_step": "choice_H"
+      }
+    ]
+  }
+}
+
