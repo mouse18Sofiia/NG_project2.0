@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, render_template, jsonify, request
 import json
 import os
@@ -17,9 +16,11 @@ for novel_file in os.listdir(novels_path):
 
 current_novel = None
 
+
 @app.route('/')
 def index():
     return render_template('index.html', novels=novels)
+
 
 @app.route('/choose_novel/<novel_name>')
 def choose_novel(novel_name):
@@ -27,17 +28,19 @@ def choose_novel(novel_name):
     current_novel = novel_name
     return render_template('novel.html', step=novels[current_novel]['start'], current_novel=current_novel)
 
+
 @app.route('/make_choice', methods=['POST'])
 def make_choice():
     global current_novel
     choice = request.json['choice']
-    next_step_key = novels[current_novel].get(choice, None)
+    next_step_key = f"choice_{choice}"
 
-    if next_step_key:
+    if next_step_key in novels[current_novel]:
         next_step = novels[current_novel][next_step_key]
         return jsonify({"step": next_step})
     else:
         return jsonify({"step": None})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
