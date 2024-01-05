@@ -1,63 +1,84 @@
 {
   "start": {
-    "text": "Welcome to the novel! Choose your first option.",
+    "text": "Людство створило корабель для вдалої подорожі на місяці.",
     "choices": [
       {
-        "key": "A",
-        "text": "Option A",
-        "next_step": "choice_A"
-      },
-      {
-        "key": "B",
-        "text": "Option B",
-        "next_step": "choice_B"
+        "key": "1",
+        "text": "Обрати команду",
+        "next_step": "choice_1"
       }
     ]
   },
-  "choice_A": {
-    "text": "You chose Option A. Continue your story.",
+  "choice_1": {
+    "text": "Оберіть ідеальну команду.",
     "choices": [
       {
-        "key": "C",
-        "text": "Option C",
-        "next_step": "choice_C"
+        "key": "2",
+        "text": "Військові",
+        "next_step": "choice_2"
       },
       {
-        "key": "D",
-        "text": "Option D",
-        "next_step": "choice_D"
+        "key": "3",
+        "text": "Вчені",
+        "next_step": "choice_3"
+      },
+      {
+        "key": "4",
+        "text": "Комбінована",
+        "next_step": "choice_4"
       }
     ]
   },
-  "choice_B": {
-    "text": "You chose Option B. Continue your story.",
+  "choice_2": {
+    "text": "Поставити задачу.",
     "choices": [
       {
-        "key": "E",
-        "text": "Option E",
-        "next_step": "choice_E"
+        "key": "5",
+        "text": "Фотаграфування.",
+        "next_step": "choice_5"
       },
       {
-        "key": "F",
-        "text": "Option F",
-        "next_step": "choice_F"
+        "key": "6",
+        "text": "Висадитися і залишити маячки.",
+        "next_step": "choice_6"
       }
     ]
   },
-  "choice_C": {
-    "text": "You chose Option C. Continue your story.",
+ "choice_3": {
+    "text": "Поставити задачу.",
     "choices": [
       {
-        "key": "G",
-        "text": "Option G",
-        "next_step": "choice_G"
+        "key": "5",
+        "text": "Фотаграфування.",
+        "next_step": "choice_5"
       },
       {
-        "key": "H",
-        "text": "Option H",
-        "next_step": "choice_H"
+        "key": "6",
+        "text": "Висадитися і взяти проби.",
+        "next_step": "choice_6"
       }
     ]
+  },
+  "choice_4": {
+    "text": "Поставити задачу.",
+    "choices": [
+      {
+        "key": "5",
+        "text": "Фотаграфування",
+        "next_step": "choice_5"
+      },
+      {
+        "key": "6",
+        "text": "Висадитися, залишити маячки та взяти проби",
+        "next_step": "choice_6"
+      }
+    ]
+  },
+  "choice_5": {
+    "text": "Вітаю! Зроблені фото поверхні."
+  },
+  "choice_6": {
+    "text": "Вітаю! Завдання виконанно."
   }
 }
 
