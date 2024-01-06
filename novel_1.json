@@ -1,6 +1,7 @@
 {
   "start": {
     "text": "Ви пірат і вам трапився новий острів.",
+     "image_url": "images/pirate.jpg",
     "choices": [
       {
         "key": "1",
@@ -16,6 +17,7 @@
   },
   "choice_1": {
     "text": "Ви вибрали пошук скарбів. Де ви будете їх шукати?",
+    "image_url": "/static/images/island.jpg",
     "choices": [
       {
         "key": "3",
@@ -31,6 +33,7 @@
   },
   "choice_3": {
     "text": "Ви обрали скелю. Який буде маршрут?",
+    "image_url": "/static/images/the rock.jpg",
     "choices": [
       {
         "key": "5",
@@ -46,6 +49,7 @@
   },
   "choice_6": {
     "text": "Ви нічого не знайшли, але пейзаж супер! Як будете спускатися?",
+    "image_url": "/static/images/ocean.jpg",
     "choices": [
       {
         "key": "7",
@@ -61,6 +65,7 @@
   },
   "choice_7": {
     "text": "Ви спустилися. Що далі?",
+    "image_url": "/static/images/coast.jpg",
     "choices": [
       {
         "key": "9",
@@ -76,6 +81,7 @@
   },
   "choice_9": {
     "text": "Ви обрали поспати. Прокинулися ви наступного ранку, будете далі шукати?",
+    "image_url": "/static/images/beach.jpg",
     "choices": [
       {
         "key": "11",
@@ -91,6 +97,7 @@
   },
     "choice_11": {
     "text": "Ви повернулися на корабель. Куди прямуєте?",
+      "image_url": "/static/images/ship.jpg",
     "choices": [
       {
         "key": "13",
@@ -106,6 +113,7 @@
   },
   "choice_12": {
     "text": "Ви знайшли схованку. Що там?",
+    "image_url": "/static/images/box.jpg",
     "choices": [
       {
         "key": "15",
@@ -121,6 +129,7 @@
   },
   "choice_8": {
     "text": "О! Скелет з мішечком золотих. Що зробите?",
+    "image_url": "/static/images/skull.jpg",
     "choices": [
       {
         "key": "17",
@@ -136,6 +145,7 @@
   },
     "choice_17": {
     "text": "Ви зробили шляхетно, але під час викопування могили, ви щось знайшли. Що це? ",
+      "image_url": "/static/images/treasure.jpg",
     "choices": [
       {
         "key": "19",
@@ -151,6 +161,7 @@
   },
    "choice_4": {
     "text": "Ви обрали ліс. Якою стежкою підете? ",
+     "image_url": "/static/images/jungle.jpg",
     "choices": [
       {
         "key": "21",
@@ -166,6 +177,7 @@
   },
    "choice_21": {
     "text": "Ви потрапили у полон до аборегенів. Ви знаєте їх мову? ",
+     "image_url": "/static/images/man.jpg",
     "choices": [
       {
         "key": "22",
@@ -181,6 +193,7 @@
   },
    "choice_22": {
     "text": "Ви знаєте їх мову, супер! Що ви їм скажете? ",
+     "image_url": "/static/images/beach.jpg",
     "choices": [
       {
         "key": "24",
@@ -196,6 +209,7 @@
   },
      "choice_24": {
     "text": "Чи попросити ви їх про щось? ",
+       "image_url": "/static/images/beach_1.jpg",
     "choices": [
       {
         "key": "26",
@@ -211,6 +225,7 @@
   },
     "choice_26": {
     "text": "Ви попросили їх про допомогу. Вам пропонують обрати одну з двох тарілок ",
+       "image_url": "/static/images/crock.jpg",
     "choices": [
       {
         "key": "28",
@@ -227,6 +242,7 @@
 
    "choice_27": {
     "text": "Вас відпустили. Що далі? ",
+     "image_url": "/static/images/beach_1.jpg",
     "choices": [
       {
         "key": "30",
@@ -242,6 +258,7 @@
   },
  "choice_23": {
     "text": "Ви заговорили якоюсь незрозумілою мовою. Що далі? ",
+    "image_url": "/static/images/jungle.jpg",
     "choices": [
       {
         "key": "32",
@@ -257,6 +274,7 @@
   },
   "choice_32": {
     "text": "Вас тепер не відпустять і наступні роки до смерті ви будете богом. Ваші дії?",
+    "image_url": "/static/images/mon.jpg",
     "choices": [
       {
         "key": "34",
@@ -272,6 +290,7 @@
   },
    "choice_34": {
     "text": "Вам вдалося втекти?",
+     "image_url": "/static/images/question.jpg",
     "choices": [
       {
         "key": "36",
@@ -287,6 +306,7 @@
   },
   "choice_33": {
     "text": "Вас вигнали. Ваші дії?",
+    "image_url": "/static/images/beach_1.jpg",
     "choices": [
       {
         "key": "38",
@@ -302,6 +322,7 @@
   },
    "choice_40": {
     "text": "Вас вкусила отруйна комаха. Ваші дії?",
+     "image_url": "/static/images/mos.jpg",
     "choices": [
       {
         "key": "41",
@@ -317,6 +338,7 @@
   },
   "choice_41": {
     "text": "Ви ідете, але вам стає гірше. Як діяти?",
+    "image_url": "/static/images/mos.jpg",
     "choices": [
       {
         "key": "43",
@@ -332,6 +354,7 @@
   },
   "choice_43": {
     "text": "Вам все одно боляче і стає гірше ",
+    "image_url": "/static/images/ist.jpg",
     "choices": [
       {
         "key": "45",
@@ -347,6 +370,7 @@
   },
    "choice_42": {
     "text": "Ти знаєш, що допомогти має квітка. Яка вона? ",
+      "image_url": "/static/images/must.jpg",
     "choices": [
       {
         "key": "47",
@@ -361,11 +385,12 @@
     ]
   },
   "choice_47": {
-    "text": "Ти знаєш, що допомогти має квітка. Яка вона? ",
+    "text": "Що зробиш? ",
+    "image_url": "/static/images/must.jpg",
     "choices": [
       {
         "key": "49",
-        "text": "Прикласти пелюстккуу до рани.",
+        "text": "Прикласти пелюстку до рани.",
         "next_step": "choice_49"
       },
       {
@@ -376,7 +401,8 @@
     ]
   },
   "choice_48": {
-    "text": "Ти знаєш, що допомогти має квітка. Яка вона? ",
+    "text": "Що зробиш? ",
+    "image_url": "/static/images/must.jpg",
     "choices": [
       {
         "key": "51",
