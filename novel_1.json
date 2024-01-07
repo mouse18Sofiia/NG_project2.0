@@ -1,6 +1,7 @@
 {
   "start": {
     "text": "Ви пірат і вам трапився новий острів.",
+    "music_url": "/static/audio/Klaus Badelt He is A Pirate.mp3",
      "image_url": "images/pirate.jpg",
     "choices": [
       {
