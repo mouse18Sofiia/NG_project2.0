@@ -5,16 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ current_novel }}</title>
     <style>
-        /* Your existing styles here */
         body {
             background-color: #c9b884;
+            transition: background-color 0.4s;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #5dcbaa;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 10px;
+        }
+
+        #slider {
+            width: 30px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        .slider-text {
+            color: #fff;
+            margin-right: 5px;
+        }
+
+        body.dark {
+            background-color: #4d5280;
+        }
+
+        body.dark #theme-toggle {
+            background-color: #555;
+        }
+
+        body.dark #slider {
+            background-color: #fff;
+        }
+
+        body.dark .slider-text {
+            color: #fff;
+        }
+
+        /* Styles from the second HTML file */
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         button {
-            background-color: #5dcbaa;
+            background-color: #3d9177;
             border: none;
             color: #fff;
             padding: 10px 20px;
@@ -30,18 +78,18 @@
         h1 {
             text-align: center;
         }
-
         img {
             max-width: 40%;
             margin-top: 20px;
         }
-
-        #background-music {
-            display: none;  /* Hide the audio element initially */
-        }
     </style>
 </head>
 <body>
+    <div id="theme-toggle" onclick="toggleTheme()">
+        <span class="slider-text"></span>
+        <div id="slider"></div>
+        <span class="slider-text"></span>
+    </div>
     <h1>{{ step.text }}</h1>
 
     {% if step.image_url %}
@@ -54,7 +102,6 @@
         {% endfor %}
     </ul>
 
-    <!-- Add the audio element for background music -->
    <audio id="Klaus Badelt He is A Pirate" controls>
     <source src="{{ url_for('static', filename='Klaus Badelt He is A Pirate.mp3') }}" type="audio/mp3">
     Your browser does not support the audio element.
@@ -62,6 +109,18 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
+        function toggleTheme() {
+            $.ajax({
+                type: 'GET',
+                url: '/toggle_theme',
+                success: function(response) {
+                    if (response.success) {
+                        document.body.classList.toggle('dark');
+                    }
+                }
+            });
+        }
+
         // Function to create and update the background music
         function updateBackgroundMusic(musicUrl) {
             let audioElement = document.getElementById('Klaus Badelt He is A Pirate');
@@ -83,18 +142,6 @@
 
         function chooseNovel(novelName) {
             window.location.href = '/choose_novel/' + novelName;
-        }
-
-        function toggleTheme() {
-            $.ajax({
-                type: 'GET',
-                url: '/toggle_theme',
-                success: function(response) {
-                    if (response.success) {
-                        location.reload();
-                    }
-                }
-            });
         }
 
         function makeChoice(choice) {
