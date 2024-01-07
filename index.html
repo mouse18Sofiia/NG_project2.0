@@ -1,12 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novel Selection</title>
+    <title>{{ current_novel }}</title>
+    <style>
+        /* Styles from the first HTML file */
+        #theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #2196F3;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 10px;
+        }
+
+        #slider {
+            width: 30px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        .slider-text {
+            color: #fff;
+            margin-right: 5px;
+        }
+
+        /* Styles from the second HTML file */
+        body {
+            background-color: #c9b884;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            background-color: #5dcbaa;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Choose a Novel</h1>
+    <button id="theme-toggle" onclick="toggleTheme()">
+        <span class="slider-text"></span>
+        <div id="slider"></div>
+        <span class="slider-text"></span>
+    </button>
+
+    {% block content %}{% endblock %}
+
+    <h1>Привіт! Обирай новелу!</h1>
     <ul>
         {% for novel_name, novel_data in novels.items() %}
             <li><button onclick="chooseNovel('{{ novel_name }}'); return false;">{{ novel_data['start']['text'] }}</button></li>
@@ -15,6 +79,18 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
+        function toggleTheme() {
+            $.ajax({
+                type: 'GET',
+                url: '/toggle_theme',
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    }
+                }
+            });
+        }
+
         function chooseNovel(novelName) {
             window.location.href = '/choose_novel/' + novelName;
         }
