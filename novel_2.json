@@ -1,6 +1,8 @@
 {
   "start": {
     "text": "Людство створило корабель для вдалої подорожі на місяці.",
+     "music_url": "/static/audio/space-chillout-14194.mp3",
+    "image_url": "images/space.jpg",
     "choices": [
       {
         "key": "1",
@@ -11,6 +13,7 @@
   },
   "choice_1": {
     "text": "Оберіть ідеальну команду.",
+    "image_url": "/static/images/ch1.jpg",
     "choices": [
       {
         "key": "2",
@@ -31,6 +34,7 @@
   },
   "choice_2": {
     "text": "Поставити задачу.",
+    "image_url": "/static/images/moon.jpg",
     "choices": [
       {
         "key": "5",
@@ -46,6 +50,7 @@
   },
  "choice_3": {
     "text": "Поставити задачу.",
+   "image_url": "/static/images/moon.jpg",
     "choices": [
       {
         "key": "5",
@@ -61,6 +66,7 @@
   },
   "choice_4": {
     "text": "Поставити задачу.",
+    "image_url": "/static/images/moon.jpg",
     "choices": [
       {
         "key": "5",
