@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ current_novel }}</title>
-   <link rel="stylesheet" href="static\send.css">
-</head>
-<style>
+    <style>
+        /* Your existing styles here */
         body {
             background-color: #c9b884;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         button {
@@ -22,39 +24,117 @@
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        img {
+            max-width: 40%;
+            margin-top: 20px;
+        }
+
+        #background-music {
+            display: none;  /* Hide the audio element initially */
         }
     </style>
+</head>
 <body>
     <h1>{{ step.text }}</h1>
+
+    {% if step.image_url %}
+        <img src="{{ url_for('static', filename=step.image_url) }}" alt="Choice Image">
+    {% endif %}
+
     <ul>
         {% for choice in step.choices %}
             <li><button onclick="makeChoice('{{ choice.key }}'); return false;">{{ choice.text }}</button></li>
         {% endfor %}
     </ul>
 
+    <!-- Add the audio element for background music -->
+   <audio id="Klaus Badelt He is A Pirate" controls>
+    <source src="{{ url_for('static', filename='Klaus Badelt He is A Pirate.mp3') }}" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-        function makeChoice(choice) {
-    $.ajax({
-        type: 'POST',
-        contentType: 'application/json;charset=UTF-8',
-        data: JSON.stringify({'choice': choice}),
-        url: '/make_choice',
-        success: function(response) {
-            if (response.step) {
-                $('h1').text(response.step.text);
-                $('ul').empty();
-                if (response.step.choices) {
-                    $.each(response.step.choices, function(index, choice) {
-                        $('ul').append('<li><button onclick="makeChoice(\'' + choice.key + '\')">' + choice.text + '</button></li>');
-                    });
-                }
-            } else {
-                alert('End of the story');
+        // Function to create and update the background music
+        function updateBackgroundMusic(musicUrl) {
+            let audioElement = document.getElementById('Klaus Badelt He is A Pirate');
+            if (!audioElement) {
+                audioElement = document.createElement('audio');
+                audioElement.id = 'Klaus Badelt He is A Pirate';
+                audioElement.controls = true;
+                audioElement.innerHTML = 'Your browser does not support the audio element.';
+                document.body.appendChild(audioElement);
             }
+
+            // Set the source of the audio element
+            audioElement.src = musicUrl;
+
+            // Load and play the music
+            audioElement.load();
+            audioElement.play();
         }
-    });
-}
+
+        function chooseNovel(novelName) {
+            window.location.href = '/choose_novel/' + novelName;
+        }
+
+        function toggleTheme() {
+            $.ajax({
+                type: 'GET',
+                url: '/toggle_theme',
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    }
+                }
+            });
+        }
+
+        function makeChoice(choice) {
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({'choice': choice}),
+                url: '/make_choice',
+                success: function(response) {
+                    if (response.step) {
+                        $('h1').text(response.step.text);
+                        $('ul').empty();
+                        if (response.step.choices) {
+                            $.each(response.step.choices, function(index, choice) {
+                                $('ul').append('<li><button onclick="makeChoice(\'' + choice.key + '\')">' + choice.text + '</button></li>');
+                            });
+                        }
+
+                        if (response.step.image_url) {
+                            $('img').attr('src', response.step.image_url);
+                        } else {
+                            $('img').hide();
+                        }
+
+                        if (response.step.music_url) {
+                            updateBackgroundMusic(response.step.music_url);
+                        } else {
+                            // Hide the audio element if there is no music
+                            $('#background-music').hide();
+                        }
+                    } else {
+                        alert('End of the story');
+                    }
+                }
+            });
+        }
+
+        // Load and play background music if available
+        const initialMusicUrl = '{{ step.music_url }}';  // Replace with the actual URL from the server
+        updateBackgroundMusic(initialMusicUrl);
     </script>
 </body>
 </html>
