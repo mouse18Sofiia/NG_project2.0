@@ -2,10 +2,20 @@ from flask import Flask, render_template, jsonify, request
 import json
 import os
 
+
 app = Flask(__name__)
 
 novels_path = 'templates/novels'
 novels = {}
+
+user_preferences = {'theme': 'light'}
+
+@app.route('/toggle_theme')
+def toggle_theme():
+    # Toggle between light and dark themes
+    user_preferences['theme'] = 'dark' if user_preferences['theme'] == 'light' else 'light'
+    return jsonify({"success": True})
+
 
 # Load all JSON novels
 for novel_file in os.listdir(novels_path):
@@ -19,7 +29,7 @@ current_novel = None
 
 @app.route('/')
 def index():
-    return render_template('index.html', novels=novels)
+    return render_template('index.html', novels=novels, theme=user_preferences['theme'])
 
 
 @app.route('/choose_novel/<novel_name>')
